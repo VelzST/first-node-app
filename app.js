@@ -1,39 +1,36 @@
-const logger = require('./logger') 
-const path = require('path');
-const os = require('os');
+/* 1-Crear un metodo para conseguir los archivos en un directorio
+2-Crear un metodo para imprimir todos los archivos
+3-Crear un metodo para ordenar e imprimir todos los archivos
+4-Crear un metodo para obtener la cantidad de archivos que empiezan con alguna letra en particular 
+
+1 - Create a method to get all the files inside a given path
+2 - Create a method to Print all the files
+3 - Create a method to sort and print the files
+4 - Create a method to get the amount of files starting with one letter */
+
+const fileManager = require('./fileManager');
 const fs = require('fs');
+const path = require('path');
+
 
 let pathObj = path.parse(__filename);
+let pathDir = pathObj.dir;
 
 
-//let sayHello = (name) => {
-//    console.log('Hello ' + name);}
+//Conseguir e imprimir archivos en el directorio dado
+console.log('Primera forma para mostrar:');
+console.log('Archivos en el directorio:', fileManager.rootDir(pathDir));
 
-//console.log(logger);
-//console.log(logger);
-//logger.log('Santiago');
+console.log('Segunda forma para mostrar:');
+fileManager.printDir(pathDir);
 
-//console.log(pathObj);
+//Ordenar e imprimir los archivos alfabeticamente inverso
+fileManager.printReverseSort(pathDir);
 
-let freeMem = os.freemem();
-let totalMem = os.totalmem();
+//Mostrar archivos que empiezen con una determinada letra
 
-//console.log('free', freeMem);
-//console.log('total', totalMem);
+let letter = 'f';
 
-logger.log('path', pathObj);
-logger.log('free', freeMem);
-logger.log('total', totalMem);
+console.log("Array filtrado por letra inicial", letter+":");
 
-//Asincrono
-console.log('asincrono');
-let rootDir = fs.readdirSync('./');
-console.log(rootDir);
-
-//Sincrono
-console.log('Sincrono');
-fs.readdir('./', (err, files) => {
-    (err) ? console.log(err) : console.log(files);
-})
-
-
+fileManager.printByLetter(pathDir, letter);

@@ -22,7 +22,7 @@ printByLetter = (path, letterSearch) =>{
     for (var i = 1; i < arrayFiles.length; i++) {
         let element = arrayFiles[i];
         let tempElement = element.substring(0,1);
-        if(tempElement === letter){
+        if(tempElement.toUpperCase() === letter.toUpperCase()){
             tempArray.push(element);
         }
     }

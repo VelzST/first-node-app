@@ -28,9 +28,9 @@ fileManager.printDir(pathDir);
 fileManager.printReverseSort(pathDir);
 
 //Mostrar archivos que empiezen con una determinada letra
+//No sabia como pedir un input por consola
 
-let letter = 'f';
+let letter = 'a';//Cambiar la letra manual para probar
 
-console.log("Array filtrado por letra inicial", letter+":");
-
+console.log("Array filtrado por letra inicial", letter.toUpperCase() +":");
 fileManager.printByLetter(pathDir, letter);
